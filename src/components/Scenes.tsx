@@ -290,7 +290,7 @@ function SceneCard({ scene, index }: { scene: typeof scenes[0]; index: number })
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
-      className="relative h-80 rounded-3xl overflow-hidden cursor-pointer group"
+      className="relative h-48 sm:h-64 md:h-80 rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer group"
     >
       {/* Glowing border on hover */}
       <div className={`absolute -inset-[1px] rounded-3xl bg-gradient-to-r from-periwinkle/50 via-purple-500/50 to-periwinkle/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`} />
@@ -325,22 +325,23 @@ function SceneCard({ scene, index }: { scene: typeof scenes[0]; index: number })
         )}
 
         {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-between p-6" style={{ transform: 'translateZ(50px)' }}>
+        <div className="absolute inset-0 flex flex-col justify-between p-3 sm:p-4 md:p-6" style={{ transform: 'translateZ(50px)' }}>
           {/* Top Section */}
           <div className="flex justify-between items-start">
-            <div className={`w-12 h-12 rounded-2xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 ${
+            <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl backdrop-blur-md border flex items-center justify-center transition-all duration-300 ${
               isActivated
                 ? 'bg-green-500/30 border-green-400/50'
                 : 'bg-white/10 border-white/20 group-hover:bg-white/20 group-hover:scale-110'
             }`}>
               {isActivated ? (
-                <Check className="w-6 h-6 text-green-400" />
+                <Check className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-green-400" />
               ) : (
-                <scene.icon className="w-6 h-6 text-white" />
+                <scene.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
               )}
             </div>
 
-            <div className="flex flex-col gap-2 items-end transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
+            {/* Device badges - hidden on mobile */}
+            <div className="hidden md:flex flex-col gap-2 items-end transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
               {scene.devices.map((device, i) => (
                 <motion.div
                   key={device.label}
@@ -362,23 +363,24 @@ function SceneCard({ scene, index }: { scene: typeof scenes[0]; index: number })
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mb-4 flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/20 backdrop-blur-md border border-green-400/30 w-fit"
+                className="mb-2 md:mb-4 flex items-center gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full bg-green-500/20 backdrop-blur-md border border-green-400/30 w-fit"
               >
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                <span className="text-sm font-medium text-green-400">Scene Activated</span>
+                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400 animate-pulse" />
+                <span className="text-[10px] sm:text-xs md:text-sm font-medium text-green-400">Activated</span>
               </motion.div>
             )}
 
-            <h4 className={`font-heading text-xl font-bold mb-2 transition-colors duration-300 ${
+            <h4 className={`font-heading text-sm sm:text-base md:text-xl font-bold mb-0.5 sm:mb-1 md:mb-2 transition-colors duration-300 ${
               isActivated ? 'text-green-400' : 'text-white group-hover:text-periwinkle'
             }`}>
               {scene.title}
             </h4>
-            <p className="text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 mb-4">
+            <p className="text-[10px] sm:text-xs md:text-sm text-white/70 group-hover:text-white/90 transition-colors duration-300 line-clamp-2 md:mb-4">
               {scene.description}
             </p>
 
-            <div className={`transform transition-all duration-300 ${
+            {/* Voice command - hidden on mobile */}
+            <div className={`hidden md:block transform transition-all duration-300 ${
               isActivated ? 'translate-y-4 opacity-0' : 'translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'
             }`}>
               <div className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 w-fit">
@@ -427,60 +429,60 @@ function SceneCard({ scene, index }: { scene: typeof scenes[0]; index: number })
 
 export default function Scenes() {
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative py-16 md:py-32 overflow-hidden">
       {/* Animated Background */}
       <AnimatedBackground />
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-10 md:mb-16"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-periwinkle/10 border border-periwinkle/20 text-periwinkle text-sm font-semibold uppercase tracking-wider mb-4"
+            className="inline-block px-3 md:px-4 py-1.5 rounded-full bg-periwinkle/10 border border-periwinkle/20 text-periwinkle text-xs md:text-sm font-semibold uppercase tracking-wider mb-4"
           >
             Signature Scenes
           </motion.span>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 md:mb-4">
             Signature{' '}
             <span className="bg-gradient-to-r from-periwinkle via-purple-400 to-periwinkle bg-clip-text text-transparent">
               Moments
             </span>
           </h2>
-          <p className="text-gray-400 text-lg">Set once. Enjoy daily. Click to preview.</p>
+          <p className="text-gray-400 text-base md:text-lg">Set once. Enjoy daily. Tap to preview.</p>
         </motion.div>
 
         {/* Scenes Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: '1000px' }}>
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6" style={{ perspective: '1000px' }}>
           {scenes.map((scene, index) => (
             <SceneCard key={scene.title} scene={scene} index={index} />
           ))}
         </div>
 
-        {/* Bottom note */}
+        {/* Bottom note - Hidden on mobile for cleaner look */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16"
+          className="text-center mt-10 md:mt-16 hidden sm:block"
         >
           <p className="text-gray-500 text-sm mb-4">
             Works with all major voice assistants and smart home platforms
           </p>
-          <div className="flex justify-center gap-3 flex-wrap">
+          <div className="flex justify-center gap-2 md:gap-3 flex-wrap">
             {['Amazon Alexa', 'Google Home', 'Apple Siri', 'Samsung SmartThings', 'Matter'].map((assistant) => (
               <span
                 key={assistant}
-                className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-medium hover:bg-white/10 hover:text-white transition-all duration-300"
+                className="px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-white/5 border border-white/10 text-gray-400 text-[10px] md:text-xs font-medium hover:bg-white/10 hover:text-white transition-all duration-300"
               >
                 {assistant}
               </span>

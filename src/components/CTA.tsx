@@ -5,11 +5,11 @@ import Image from 'next/image'
 
 export default function CTA() {
   return (
-    <section id="contact" className="py-24 bg-cream">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-strong">
+    <section id="contact" className="py-16 md:py-24 bg-cream">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid md:grid-cols-2 gap-0 rounded-2xl md:rounded-3xl overflow-hidden shadow-strong">
           {/* Left Side - Image with Text Overlay */}
-          <div className="relative min-h-[500px] md:min-h-full">
+          <div className="relative min-h-[300px] sm:min-h-[400px] md:min-h-full">
             <Image
               src="/images/smart-speaker.jpg"
               alt="Smart home voice assistant"
@@ -25,31 +25,31 @@ export default function CTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="absolute inset-0 flex flex-col justify-start p-8 md:p-12"
+              className="absolute inset-0 flex flex-col justify-start p-5 sm:p-8 md:p-12"
             >
-              <span className="text-periwinkle text-sm font-semibold uppercase tracking-wider mb-3">
+              <span className="text-periwinkle text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3">
                 Get Started
               </span>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
                 Ready to Experience a Smarter Home?
               </h2>
-              <p className="text-white/80 text-lg mb-6 max-w-md">
+              <p className="text-white/80 text-sm md:text-lg mb-4 md:mb-6 max-w-md">
                 Tell us about your space in Guwahati. We&apos;ll recommend a clear, premium path forward.
               </p>
 
               {/* Trust badges */}
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                  <svg className="w-4 h-4 text-periwinkle" fill="currentColor" viewBox="0 0 24 24">
+              <div className="flex flex-wrap gap-2 md:gap-4">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+                  <svg className="w-3 h-3 md:w-4 md:h-4 text-periwinkle" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
                   </svg>
-                  <span className="text-white text-sm">Free Consultation</span>
+                  <span className="text-white text-xs md:text-sm">Free Consultation</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                  <svg className="w-4 h-4 text-periwinkle" fill="currentColor" viewBox="0 0 24 24">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+                  <svg className="w-3 h-3 md:w-4 md:h-4 text-periwinkle" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
                   </svg>
-                  <span className="text-white text-sm">No Obligation</span>
+                  <span className="text-white text-xs md:text-sm">No Obligation</span>
                 </div>
               </div>
             </motion.div>
@@ -62,9 +62,9 @@ export default function CTA() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white p-8 md:p-12"
+            className="bg-white p-5 sm:p-8 md:p-12"
           >
-            <h3 className="font-heading text-2xl font-bold text-charcoal mb-6">
+            <h3 className="font-heading text-xl md:text-2xl font-bold text-charcoal mb-4 md:mb-6">
               Get in Touch
             </h3>
             <form className="space-y-4">

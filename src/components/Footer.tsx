@@ -26,21 +26,21 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="py-16 bg-charcoal text-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 mb-12">
+    <footer className="py-12 md:py-16 bg-charcoal text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16 mb-10 md:mb-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <a href="#" className="inline-block mb-5">
+          <div className="col-span-2 lg:col-span-2">
+            <a href="#" className="inline-block mb-4 md:mb-5">
               <Image
                 src="/images/logo-white.png"
                 alt="Dhoop Smart Living"
                 width={180}
                 height={50}
-                className="h-12 w-auto object-contain"
+                className="h-10 md:h-12 w-auto object-contain"
               />
             </a>
-            <p className="text-gray-400 mb-6 max-w-sm">
+            <p className="text-gray-400 text-sm md:text-base mb-5 md:mb-6 max-w-sm">
               Premium smart home automation, designed in Guwahati. Seamless lighting, climate, security, and entertainment—crafted around your routines.
             </p>
             <div className="flex gap-3">

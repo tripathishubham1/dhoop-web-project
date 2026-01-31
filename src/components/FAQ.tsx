@@ -23,8 +23,8 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-24 bg-cream">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="faq" className="py-16 md:py-24 bg-cream">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,7 +38,7 @@ export default function FAQ() {
         </motion.div>
 
         {/* FAQ Grid */}
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
           {faqs.map((faq, index) => (
             <motion.div
               key={faq.question}
@@ -46,12 +46,12 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-soft border border-deep-indigo/5"
+              className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-soft border border-deep-indigo/5"
             >
-              <h4 className="font-heading font-bold text-charcoal mb-3">
+              <h4 className="font-heading font-bold text-charcoal text-sm md:text-base mb-2 md:mb-3">
                 {faq.question}
               </h4>
-              <p className="text-gray-500">{faq.answer}</p>
+              <p className="text-gray-500 text-sm md:text-base">{faq.answer}</p>
             </motion.div>
           ))}
         </div>

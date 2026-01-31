@@ -32,24 +32,24 @@ export default function Experience() {
 
   return (
     <section id="experience" className="relative bg-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 min-h-[700px]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-8 min-h-[500px] lg:min-h-[700px]">
           {/* Left - Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-center py-24"
+            className="flex flex-col justify-center py-12 md:py-24"
           >
-            <span className="section-tag mb-6">The Experience</span>
-            <h2 className="font-heading text-4xl lg:text-5xl font-bold text-charcoal mb-6 leading-[1.1]">
+            <span className="section-tag mb-4 md:mb-6">The Experience</span>
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-4 md:mb-6 leading-[1.1]">
               Your Home,<br />
               <span className="text-deep-indigo">One Touch Away</span>
             </h2>
-            <p className="text-gray-500 text-lg mb-10 max-w-md">
+            <p className="text-gray-500 text-base md:text-lg mb-8 md:mb-10 max-w-md">
               Every light, every lock, every room—unified in one beautiful interface.
             </p>
-            <div className="space-y-4 mb-10">
+            <div className="space-y-3 md:space-y-4 mb-8 md:mb-10">
               {features.map((feature, i) => (
                 <motion.div
                   key={feature}
@@ -59,16 +59,16 @@ export default function Experience() {
                   transition={{ delay: 0.2 + i * 0.1 }}
                   className="flex items-center gap-3"
                 >
-                  <div className="w-5 h-5 rounded-full bg-deep-indigo flex items-center justify-center">
+                  <div className="w-5 h-5 rounded-full bg-deep-indigo flex items-center justify-center flex-shrink-0">
                     <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-charcoal">{feature}</span>
+                  <span className="text-charcoal text-sm md:text-base">{feature}</span>
                 </motion.div>
               ))}
             </div>
-            <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 bg-deep-indigo text-white rounded-xl font-semibold hover:bg-deep-indigo/90 transition-colors w-fit">
+            <a href="#contact" className="inline-flex items-center gap-2 px-5 md:px-6 py-3 bg-deep-indigo text-white rounded-xl font-semibold text-sm md:text-base hover:bg-deep-indigo/90 transition-colors w-fit">
               Book a Demo →
             </a>
           </motion.div>
@@ -210,30 +210,39 @@ export default function Experience() {
       </div>
 
       {/* Mobile Version */}
-      <div className="lg:hidden px-6 pb-24">
-        <div className="bg-white rounded-3xl p-6 max-w-sm mx-auto shadow-xl border border-gray-100">
-          <div className="mb-6">
-            <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Home</p>
-            <p className="font-bold text-charcoal text-2xl">Living Room</p>
+      <div className="lg:hidden px-4 pb-16">
+        <div className="bg-gray-50 rounded-2xl p-5 max-w-md mx-auto">
+          <div className="mb-5">
+            <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Home</p>
+            <p className="font-bold text-charcoal text-xl">Living Room</p>
           </div>
-          <div className="space-y-3">
-            {devices.slice(0, 2).map((device) => {
+          <div className="space-y-2.5">
+            {devices.map((device) => {
               const isOn = deviceStates[device.id]
               return (
                 <div
                   key={device.id}
                   onClick={() => toggleDevice(device.id)}
-                  className={`flex items-center justify-between p-4 rounded-xl cursor-pointer transition-all ${
-                    isOn ? 'bg-deep-indigo' : 'bg-gray-50'
+                  className={`flex items-center justify-between p-3.5 rounded-xl cursor-pointer transition-all ${
+                    isOn ? 'bg-deep-indigo' : 'bg-white'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <device.icon className={`w-5 h-5 ${isOn ? 'text-white' : 'text-gray-400'}`} />
-                    <span className={`font-medium ${isOn ? 'text-white' : 'text-black'}`}>{device.name}</span>
+                    <device.icon className={`w-5 h-5 ${isOn ? 'text-white' : 'text-gray-400'}`} strokeWidth={1.5} />
+                    <span className={`font-medium text-sm ${isOn ? 'text-white' : 'text-charcoal'}`}>{device.name}</span>
                   </div>
-                  <span className={`text-sm ${isOn ? 'text-white/70' : 'text-gray-400'}`}>
-                    {isOn ? device.value : 'Off'}
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <span className={`text-xs ${isOn ? 'text-white/70' : 'text-gray-400'}`}>
+                      {isOn ? device.value : 'Off'}
+                    </span>
+                    <div className={`w-10 h-6 rounded-full relative ${isOn ? 'bg-white/20' : 'bg-gray-200'}`}>
+                      <motion.div
+                        className="absolute top-1 w-4 h-4 rounded-full bg-white shadow-sm"
+                        animate={{ left: isOn ? '20px' : '4px' }}
+                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                      />
+                    </div>
+                  </div>
                 </div>
               )
             })}
