@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #faf9f7;
+  color: #282828;
+  overflow-x: hidden;
+}
+
+@layer components {
+  .gradient-primary {
+    background: linear-gradient(135deg, #292497 0%, #3d35b5 50%, #a8a6fa 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #292497 0%, #3d35b5 50%, #a8a6fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    @apply bg-deep-indigo text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 inline-flex items-center gap-2;
+  }
+
+  .btn-primary:hover {
+    @apply bg-[#3d35b5] -translate-y-0.5 shadow-medium;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-charcoal px-6 py-3 rounded-xl font-medium border border-gray-200 transition-all duration-300;
+  }
+
+  .btn-secondary:hover {
+    @apply border-deep-indigo text-deep-indigo -translate-y-0.5;
+  }
+
+  .btn-light {
+    @apply bg-white text-deep-indigo px-6 py-3 rounded-xl font-semibold transition-all duration-300 inline-flex items-center gap-2;
+  }
+
+  .btn-light:hover {
+    @apply -translate-y-0.5 shadow-lg;
+  }
+
+  .btn-outline-light {
+    @apply bg-transparent text-white px-6 py-3 rounded-xl font-semibold border-2 border-white/30 transition-all duration-300;
+  }
+
+  .btn-outline-light:hover {
+    @apply bg-white/10 border-white;
+  }
+
+  .section-tag {
+    @apply text-deep-indigo text-sm font-semibold uppercase tracking-wider mb-2 block;
+  }
+
+  .section-header {
+    @apply text-center max-w-2xl mx-auto mb-16;
+  }
+
+  .section-header h2 {
+    @apply font-heading text-3xl md:text-4xl font-bold text-charcoal mb-4;
+  }
+
+  .section-header p {
+    @apply text-gray-500 text-lg;
+  }
+}
+
+/* Gradient text animation */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 4s ease infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf9f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #292497;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a6fa;
+}
