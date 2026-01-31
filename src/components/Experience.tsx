@@ -39,17 +39,17 @@ export default function Experience() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-center py-12 md:py-24"
+            className="flex flex-col justify-center py-12 md:py-24 text-center lg:text-left"
           >
             <span className="section-tag mb-4 md:mb-6">The Experience</span>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-4 md:mb-6 leading-[1.1]">
               Your Home,<br />
               <span className="text-deep-indigo">One Touch Away</span>
             </h2>
-            <p className="text-gray-500 text-base md:text-lg mb-8 md:mb-10 max-w-md">
+            <p className="text-gray-500 text-base md:text-lg mb-8 md:mb-10 max-w-md mx-auto lg:mx-0">
               Every light, every lock, every room—unified in one beautiful interface.
             </p>
-            <div className="space-y-3 md:space-y-4 mb-8 md:mb-10">
+            <div className="space-y-3 md:space-y-4 mb-8 md:mb-10 flex flex-col items-center lg:items-start">
               {features.map((feature, i) => (
                 <motion.div
                   key={feature}
@@ -68,7 +68,7 @@ export default function Experience() {
                 </motion.div>
               ))}
             </div>
-            <a href="#contact" className="inline-flex items-center gap-2 px-5 md:px-6 py-3 bg-deep-indigo text-white rounded-xl font-semibold text-sm md:text-base hover:bg-deep-indigo/90 transition-colors w-fit">
+            <a href="#contact" className="inline-flex items-center gap-2 px-5 md:px-6 py-3 bg-deep-indigo text-white rounded-xl font-semibold text-sm md:text-base hover:bg-deep-indigo/90 transition-colors w-fit mx-auto lg:mx-0">
               Book a Demo →
             </a>
           </motion.div>

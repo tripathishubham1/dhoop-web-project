@@ -52,15 +52,15 @@ export default function WhyDhoop() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center"
+              className="text-center bg-white rounded-xl p-4 md:p-5 md:bg-transparent md:rounded-none"
             >
-              <div className="w-12 h-12 md:w-16 md:h-16 mx-auto gradient-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-3 md:mb-5 shadow-[0_4px_12px_rgba(41,36,151,0.25)]">
+              <div className="w-11 h-11 md:w-16 md:h-16 mx-auto gradient-primary rounded-xl md:rounded-2xl flex items-center justify-center mb-3 md:mb-5 shadow-[0_4px_12px_rgba(41,36,151,0.25)]">
                 <reason.icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
               </div>
               <h3 className="font-heading font-bold text-charcoal text-sm md:text-base mb-1 md:mb-2">
                 {reason.title}
               </h3>
-              <p className="text-xs md:text-sm text-gray-500">{reason.description}</p>
+              <p className="text-[11px] md:text-sm text-gray-500 leading-snug hidden md:block">{reason.description}</p>
             </motion.div>
           ))}
         </div>

@@ -50,7 +50,7 @@ export default function Hero() {
       </div>
 
       {/* Content - Centered */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center pt-20 md:pt-24">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center pt-16 md:pt-24">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-6 md:mb-8"
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 md:mb-8"
           >
             <span className="w-2 h-2 bg-periwinkle rounded-full animate-pulse" />
             <span className="text-xs sm:text-sm font-medium text-white">Based in Guwahati</span>
@@ -72,7 +72,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight"
+            className="font-heading text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-[1.15]"
           >
             Smart Living,{' '}
             <span className="bg-gradient-to-r from-periwinkle via-white to-periwinkle bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
