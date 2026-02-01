@@ -57,7 +57,7 @@ body {
   }
 
   .section-tag {
-    @apply text-deep-indigo text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 block;
+    @apply text-deep-indigo text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 block leading-none;
   }
 
   .section-header {

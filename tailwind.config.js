@@ -14,8 +14,8 @@ module.exports = {
         'light-gray': '#f5f4f2',
       },
       fontFamily: {
-        sans: ['Outfit', 'system-ui', 'sans-serif'],
-        heading: ['Manrope', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-acumin)', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-vastago)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #292497 0%, #3d35b5 50%, #a8a6fa 100%)',

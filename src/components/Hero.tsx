@@ -61,7 +61,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full mb-4 md:mb-8"
+            className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 sm:px-5 pt-2.5 pb-2 sm:pt-3 sm:pb-2.5 rounded-full mb-4 md:mb-8"
           >
             <span className="w-2 h-2 bg-periwinkle rounded-full animate-pulse" />
             <span className="text-xs sm:text-sm font-medium text-white">Based in Guwahati</span>

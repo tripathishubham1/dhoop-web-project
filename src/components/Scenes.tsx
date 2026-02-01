@@ -79,31 +79,38 @@ const scenes = [
   },
 ]
 
+// Pre-computed particle positions to avoid hydration mismatch
+const particleData = Array.from({ length: 50 }, (_, i) => ({
+  left: ((i * 17 + 23) % 100),
+  top: ((i * 31 + 47) % 100),
+  duration: 10 + (i % 10),
+  delay: (i % 10),
+}))
+
 // Floating Particles Component
 function FloatingParticles() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(50)].map((_, i) => (
+      {particleData.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 bg-white/20 rounded-full"
           initial={{
-            x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-            y: Math.random() * 800,
+            opacity: 0,
           }}
           animate={{
-            y: [null, -100],
+            y: [0, -100],
             opacity: [0, 1, 0],
           }}
           transition={{
-            duration: Math.random() * 10 + 10,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 10,
+            delay: particle.delay,
             ease: "linear",
           }}
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${particle.left}%`,
+            top: `${particle.top}%`,
           }}
         />
       ))}
@@ -348,7 +355,7 @@ function SceneCard({ scene, index }: { scene: typeof scenes[0]; index: number })
                   initial={{ x: 20, opacity: 0 }}
                   animate={isHovered ? { x: 0, opacity: 1 } : { x: 20, opacity: 0 }}
                   transition={{ duration: 0.3, delay: i * 0.1 }}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10"
+                  className="flex items-center justify-center gap-2 px-3 pt-2 pb-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10"
                 >
                   <device.icon className={`w-3.5 h-3.5 ${device.color}`} />
                   <span className="text-xs font-medium text-white">{device.label}</span>
@@ -363,7 +370,7 @@ function SceneCard({ scene, index }: { scene: typeof scenes[0]; index: number })
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mb-2 md:mb-4 flex items-center gap-2 px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 md:py-2 rounded-full bg-green-500/20 backdrop-blur-md border border-green-400/30 w-fit"
+                className="mb-2 md:mb-4 flex items-center justify-center gap-2 px-2 sm:px-3 md:px-4 pt-1.5 pb-1 sm:pt-2 sm:pb-1.5 md:pt-2.5 md:pb-2 rounded-full bg-green-500/20 backdrop-blur-md border border-green-400/30 w-fit"
               >
                 <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400 animate-pulse" />
                 <span className="text-[10px] sm:text-xs md:text-sm font-medium text-green-400">Activated</span>
@@ -383,7 +390,7 @@ function SceneCard({ scene, index }: { scene: typeof scenes[0]; index: number })
             <div className={`hidden md:block transform transition-all duration-300 ${
               isActivated ? 'translate-y-4 opacity-0' : 'translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'
             }`}>
-              <div className="flex items-center gap-3 px-4 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 w-fit">
+              <div className="flex items-center justify-center gap-3 px-4 pt-3 pb-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 w-fit">
                 <div className="relative flex items-center gap-0.5">
                   <Mic className="w-4 h-4 text-periwinkle" />
                   <div className="flex items-end gap-0.5 ml-1">
@@ -447,7 +454,7 @@ export default function Scenes() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block px-3 md:px-4 py-1.5 rounded-full bg-periwinkle/10 border border-periwinkle/20 text-periwinkle text-xs md:text-sm font-semibold uppercase tracking-wider mb-4"
+            className="inline-flex items-center justify-center px-3 md:px-4 pt-2 pb-1.5 md:pt-2.5 md:pb-2 rounded-full bg-periwinkle/10 border border-periwinkle/20 text-periwinkle text-xs md:text-sm font-semibold uppercase tracking-wider mb-4"
           >
             Signature Scenes
           </motion.span>
@@ -482,7 +489,7 @@ export default function Scenes() {
             {['Amazon Alexa', 'Google Home', 'Apple Siri', 'Samsung SmartThings', 'Matter'].map((assistant) => (
               <span
                 key={assistant}
-                className="px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-white/5 border border-white/10 text-gray-400 text-[10px] md:text-xs font-medium hover:bg-white/10 hover:text-white transition-all duration-300"
+                className="inline-flex items-center justify-center px-3 md:px-4 pt-2 pb-1.5 md:pt-2.5 md:pb-2 rounded-full bg-white/5 border border-white/10 text-gray-400 text-[10px] md:text-xs font-medium hover:bg-white/10 hover:text-white transition-all duration-300"
               >
                 {assistant}
               </span>

@@ -108,7 +108,7 @@ function ProcessStep({ step, index }: { step: typeof processSteps[0]; index: num
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.3, delay: 0.3 + i * 0.1 }}
-                  className="px-3 py-1.5 rounded-full text-xs font-medium text-deep-indigo bg-periwinkle/10 border border-periwinkle/20"
+                  className="inline-flex items-center justify-center px-3 pt-2 pb-1.5 rounded-full text-xs font-medium text-deep-indigo bg-periwinkle/10 border border-periwinkle/20"
                 >
                   {detail}
                 </motion.span>
@@ -169,7 +169,7 @@ export default function Process() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-block px-3 md:px-4 py-1.5 rounded-full bg-deep-indigo/10 border border-deep-indigo/20 text-deep-indigo text-xs md:text-sm font-semibold uppercase tracking-wider mb-4"
+            className="inline-flex items-center justify-center px-3 md:px-4 pt-2 pb-1.5 md:pt-2.5 md:pb-2 rounded-full bg-deep-indigo/10 border border-deep-indigo/20 text-deep-indigo text-xs md:text-sm font-semibold uppercase tracking-wider mb-4"
           >
             Our Process
           </motion.span>
